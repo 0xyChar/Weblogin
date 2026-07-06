@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'ba870a7ea7c771f5d61b3bccdd5ed45a')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']  # Must be set for Render
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -78,12 +78,17 @@ WSGI_APPLICATION = 'web_project.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'LoginRegisterLogout',
+        'USER': 'postgres',
+        'PASSWORD': 'boot',
+        'HOST': 'localhost',
+        'PORT': '5432',
 }
+    }
+
+    
 
 
 
