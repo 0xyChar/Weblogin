@@ -31,5 +31,5 @@ def user_logout(request):
     logout(request)
     return redirect('home')
 
-def user_home(request):
+def user_home(request): 
     return render(request, 'users/home.html')
